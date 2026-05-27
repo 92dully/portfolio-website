@@ -1,0 +1,2 @@
+# macOS system files (prevents Finder junk from uploading)
+.DS_Store
