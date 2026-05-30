@@ -1,230 +1,133 @@
-/* ============================================================
-   Muhammad Abdullah Ahmad — Portfolio Scripts
-   Navbar scroll, active section highlighting, mobile menu,
-   scroll reveal animations, contact form handling.
-   ============================================================ */
+/* ================================================================
+   Portfolio — script.js
+   Responsibilities (and NOTHING else):
+     1. Navbar scroll border
+     2. Active nav-link highlighting
+     3. Mobile hamburger menu toggle
+     4. Contact form validation + mailto fallback
+   ================================================================ */
 
-/* ---- DOM ready ---- */
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
+  'use strict';
 
-  // ------------------------------------------------
-  // 1. NAVBAR — scroll border + active link tracking
-  // ------------------------------------------------
-  const navbar   = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+  /* ---- Elements ---- */
+  const navbar    = document.getElementById('navbar');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  const sections  = document.querySelectorAll('main section[id]');
+  const hamburger = document.getElementById('hamburger');
+  const navList   = document.getElementById('navLinks');
+  const form      = document.getElementById('contactForm');
+  const feedback  = document.getElementById('formFeedback');
 
-  function updateNavbar() {
-    // Add border when scrolled
-    if (window.scrollY > 20) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+  /* ================================================================
+     1 & 2. NAVBAR: scroll border + active section highlight
+     ================================================================ */
+  function onScroll() {
+    /* Border appears once page scrolls */
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
 
-    // Highlight active section
+    /* Determine which section is currently in view */
     let current = '';
-    sections.forEach(section => {
-      const sectionTop    = section.offsetTop - 90;
-      const sectionHeight = section.offsetHeight;
-      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+    sections.forEach(function (section) {
+      const top = section.offsetTop - 80;      /* 80px = comfortable offset */
+      if (window.scrollY >= top) {
         current = section.getAttribute('id');
       }
     });
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.dataset.section === current) {
-        link.classList.add('active');
-      }
+    navLinks.forEach(function (link) {
+      link.classList.toggle('active', link.dataset.section === current);
     });
   }
 
-  window.addEventListener('scroll', updateNavbar, { passive: true });
-  updateNavbar(); // run once on load
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); /* Run once on load */
 
-  // ------------------------------------------------
-  // 2. MOBILE HAMBURGER MENU
-  // ------------------------------------------------
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('navLinks');
+  /* ================================================================
+     3. HAMBURGER MENU
+     ================================================================ */
+  function closeMobileMenu() {
+    hamburger.setAttribute('aria-expanded', 'false');
+    navList.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
-  hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-
-  // Close menu when a link is clicked
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
-      document.body.style.overflow = '';
-    });
-  });
-
-  // Close menu on outside click
-  document.addEventListener('click', (e) => {
-    if (!navbar.contains(e.target) && mobileMenu.classList.contains('open')) {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
-      document.body.style.overflow = '';
+  hamburger.addEventListener('click', function () {
+    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      closeMobileMenu();
+    } else {
+      hamburger.setAttribute('aria-expanded', 'true');
+      navList.classList.add('open');
+      document.body.style.overflow = 'hidden'; /* prevent background scroll */
     }
   });
 
-  // ------------------------------------------------
-  // 3. SCROLL REVEAL — Intersection Observer
-  // ------------------------------------------------
-  const revealElements = document.querySelectorAll(
-    '.section-header, .about-grid, .skills-grid, .learning-bar, ' +
-    '.projects-grid, .timeline-item, .education-grid, .volunteer-card, ' +
-    '.contact-grid, .stat-card'
-  );
-
-  // Add reveal class to elements we want to animate in
-  revealElements.forEach(el => {
-    el.classList.add('reveal');
+  /* Close menu when a link is tapped */
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', closeMobileMenu);
   });
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Unobserve after reveal so it doesn't re-animate
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: '0px 0px -60px 0px'
+  /* Close menu when clicking outside the navbar */
+  document.addEventListener('click', function (e) {
+    if (!navbar.contains(e.target)) {
+      closeMobileMenu();
     }
-  );
-
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-  // ------------------------------------------------
-  // 4. STAGGERED CHILDREN (timeline items, stat cards)
-  // ------------------------------------------------
-  const staggerGroups = {
-    '.timeline-item': 80,
-    '.stat-card':     60,
-    '.project-card':  60,
-    '.edu-card':      60,
-    '.skill-group':   50,
-  };
-
-  Object.entries(staggerGroups).forEach(([selector, delay]) => {
-    document.querySelectorAll(selector).forEach((el, i) => {
-      el.style.transitionDelay = `${i * delay}ms`;
-    });
   });
 
-  // ------------------------------------------------
-  // 5. CONTACT FORM — mailto fallback
-  // ------------------------------------------------
-  const contactForm = document.getElementById('contactForm');
+  /* Close menu on Escape key */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeMobileMenu(); }
+  });
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+  /* ================================================================
+     4. CONTACT FORM — client-side validation + mailto fallback
+     ================================================================ */
+  if (form) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const name    = document.getElementById('name').value.trim();
-      const email   = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
+      var name    = document.getElementById('cf-name').value.trim();
+      var email   = document.getElementById('cf-email').value.trim();
+      var message = document.getElementById('cf-msg').value.trim();
 
-      // Basic validation
+      /* Basic validation */
       if (!name || !email || !message) {
-        showFormFeedback('Please fill in all fields.', 'error');
-        return;
-      }
-      if (!isValidEmail(email)) {
-        showFormFeedback('Please enter a valid email address.', 'error');
+        setFeedback('Please fill in all fields.', false);
         return;
       }
 
-      // Construct mailto link
-      const subject  = encodeURIComponent(`Portfolio contact from ${name}`);
-      const body     = encodeURIComponent(
-        `Hi Muhammad,\n\nName: ${name}\nEmail: ${email}\n\n${message}`
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        setFeedback('Please enter a valid email address.', false);
+        return;
+      }
+
+      /* Build mailto link and trigger */
+      var subject = encodeURIComponent('Portfolio enquiry from ' + name);
+      var body    = encodeURIComponent(
+        'Hi Muhammad,\n\nName: ' + name +
+        '\nEmail: ' + email +
+        '\n\n' + message
       );
-      const mailto   = `mailto:92abdullahahmad@gmail.com?subject=${subject}&body=${body}`;
 
-      window.location.href = mailto;
-      showFormFeedback('Opening your mail client...', 'success');
+      window.location.href =
+        'mailto:92abdullahahmad@gmail.com?subject=' + subject + '&body=' + body;
+
+      setFeedback('Opening your mail client\u2026', true);
     });
   }
 
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  function showFormFeedback(message, type) {
-    // Remove any existing feedback
-    const existing = contactForm.querySelector('.form-feedback');
-    if (existing) existing.remove();
-
-    const feedback = document.createElement('p');
-    feedback.className = 'form-feedback';
+  function setFeedback(message, success) {
+    if (!feedback) { return; }
     feedback.textContent = message;
-    feedback.style.cssText = `
-      font-size: 0.82rem;
-      padding: 10px 14px;
-      border-radius: 8px;
-      margin-top: -8px;
-      border: 1px solid ${type === 'success' ? 'rgba(62,207,142,0.3)' : 'rgba(255,100,100,0.3)'};
-      background: ${type === 'success' ? 'rgba(62,207,142,0.08)' : 'rgba(255,100,100,0.08)'};
-      color: ${type === 'success' ? '#3ecf8e' : '#ff6464'};
-    `;
-    contactForm.appendChild(feedback);
+    feedback.className   = 'form-feedback ' + (success ? 'is-ok' : 'is-error');
 
-    // Auto-remove after 5s
-    setTimeout(() => feedback.remove(), 5000);
+    /* Auto-clear after 5 seconds */
+    setTimeout(function () {
+      feedback.textContent = '';
+      feedback.className   = 'form-feedback';
+    }, 5000);
   }
 
-  // ------------------------------------------------
-  // 6. SMOOTH SCROLL for anchor links (polyfill safety)
-  // ------------------------------------------------
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = 72; // navbar height
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
-
-  // ------------------------------------------------
-  // 7. TYPING EFFECT (optional — terminal card cursor)
-  // ------------------------------------------------
-  // Subtle cursor blink on the terminal card — pure CSS handles this,
-  // but we add a blinking caret after the last JSON line for polish.
-  const terminalCode = document.querySelector('.terminal-body code');
-  if (terminalCode) {
-    const caret = document.createElement('span');
-    caret.style.cssText = `
-      display: inline-block;
-      width: 8px;
-      height: 14px;
-      background: #5b8dee;
-      margin-left: 2px;
-      vertical-align: text-bottom;
-      animation: blink 1.1s step-end infinite;
-    `;
-    // Add keyframes dynamically
-    const style = document.createElement('style');
-    style.textContent = '@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }';
-    document.head.appendChild(style);
-    terminalCode.appendChild(caret);
-  }
-
-});
+})();

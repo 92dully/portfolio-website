@@ -1,2 +1,8 @@
 # macOS system files (prevents Finder junk from uploading)
 .DS_Store
+
+# my cv
+cv.pdf
+
+# Customisation Guide (just to help me edit the site)
+customisationGuide.md
