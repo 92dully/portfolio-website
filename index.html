@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Muhammad Abdullah Ahmad — Software Engineering student at the University of Strathclyde." />
+  <meta name="description" content="Muhammad Abdullah Ahmad, Software Engineering student at the University of Strathclyde" />
   <meta name="author" content="Muhammad Abdullah Ahmad" />
-  <title>Muhammad Abdullah Ahmad — Software Engineering</title>
+  <title>Muhammad Abdullah Ahmad, Software Engineering</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,7 +25,7 @@
           <li><a href="#home"       class="nav-link" data-section="home">Home</a></li>
           <li><a href="#about"      class="nav-link" data-section="about">About</a></li>
           <li><a href="#projects"   class="nav-link" data-section="projects">Projects</a></li>
-          <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+          <li><a href="#journey"    class="nav-link" data-section="journey">Journey</a></li>
           <li><a href="#contact"    class="nav-link" data-section="contact">Contact</a></li>
           <li><a href="cv.pdf" class="nav-cv" download>Resume</a></li>
         </ul>
@@ -47,10 +47,13 @@
         <span class="eyebrow">Software Engineering Student</span>
         <h1>Muhammad Abdullah Ahmad</h1>
         <p class="hero-lede">
-          Second-year Software Engineering student at the University of Strathclyde.
-          I build small, working things — a real client website, an ESP32 firmware project,
-          a from-scratch reimplementation of Git — and try to understand systems from the
-          ground up rather than from the top of a framework.
+          Third year Software Engineering student at the University of Strathclyde,
+          Year 1 and Year 2 completed with Merit
+        </p>
+        <p class="hero-lede hero-lede-secondary">
+          I build small working things, a real client website, a Unix shell in C,
+          a reimplementation of Git, and try to understand systems from the ground up
+          rather than from the top of a framework
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View projects</a>
@@ -73,17 +76,22 @@
 
         <div class="about-body">
           <p>
-            I'm a second-year Software Engineering student at the University of Strathclyde.
-            I'm drawn to how things actually work underneath — I re-implemented Git's core
-            internals mostly to understand version control rather than just use it, and I
-            like projects where I'm responsible for the whole thing, not just one layer.
+            I'm a third year Software Engineering student at the University of Strathclyde,
+            with Year 1 and Year 2 completed with Merit
           </p>
           <p>
-            Most of my time outside coursework goes into building real, working software:
-            a live site for a community mosque, a full-stack quiz app deployed on Azure,
-            and firmware work on ESP32 boards during an internship at MAGE Control Systems.
-            I'm particularly interested in full-stack and web development, and in writing
-            code that's straightforward to read six months later.
+            I like understanding how things work underneath, which is why I rebuilt Git's
+            core internals and wrote my own Unix shell in C instead of only using the tools
+            that already exist
+          </p>
+          <p>
+            Outside coursework I build real software, a live site for a local mosque,
+            a full stack quiz app deployed on Azure, and firmware for ESP32 boards during
+            an internship at MAGE Control Systems
+          </p>
+          <p>
+            I'm especially interested in full stack development and systems programming,
+            and I try to write code that still makes sense to me months later
           </p>
         </div>
 
@@ -98,7 +106,7 @@
           </div>
           <div class="about-meta-row">
             <dt class="about-meta-label">Focus</dt>
-            <dd class="about-meta-value">Full-stack &amp; web development, embedded systems</dd>
+            <dd class="about-meta-value">Full stack development, embedded systems</dd>
           </div>
         </dl>
       </div>
@@ -114,19 +122,16 @@
 
         <dl class="skills-list">
           <dt>Languages</dt>
-          <dd>Java, Python, PHP, C, SQL, HTML, CSS, Visual Basic, LaTeX</dd>
+          <dd>Java, Python, PHP, C, SQL</dd>
 
-          <dt>Tools &amp; platforms</dt>
-          <dd>Git, MySQL, MS Azure, VS Code, IntelliJ</dd>
+          <dt>Web</dt>
+          <dd>HTML, CSS, JavaScript</dd>
 
           <dt>Embedded</dt>
-          <dd>ESP32, Arduino framework, IoT prototyping</dd>
+          <dd>C, ESP32, Arduino</dd>
 
-          <dt>Currently learning</dt>
-          <dd>Software architecture patterns, RTOS fundamentals</dd>
-
-          <dt>Spoken</dt>
-          <dd>English (native), Urdu (fluent), Arabic (learning)</dd>
+          <dt>Tools</dt>
+          <dd>Git, MySQL, Azure, VS Code</dd>
         </dl>
       </div>
     </section>
@@ -141,27 +146,31 @@
 
         <div class="projects-list">
 
-          <!-- Featured: Madni Masjid -->
-          <article class="project" aria-label="Madni Masjid Website — featured project">
+          <!-- Madni Masjid -->
+          <article class="project" aria-label="Madni Masjid Website">
+            <figure class="project-media">
+              <img src="images/madni-masjid.svg" alt="Madni Masjid Website screenshot placeholder" loading="lazy" />
+            </figure>
             <div class="project-top">
-              <h3 class="project-title">
-                Madni Masjid Website
-                <span class="project-featured-tag">Live · Real client</span>
-              </h3>
+              <h3 class="project-title">Madni Masjid Website</h3>
               <a href="https://madnimasjid.uk" target="_blank" rel="noopener noreferrer" class="project-link">madnimasjid.uk ↗</a>
             </div>
             <div class="project-rows">
               <div class="project-row">
                 <span class="project-row-label">Problem</span>
-                <span class="project-row-value">A local mosque had no web presence — no way to share prayer times, events, or information with the community online.</span>
+                <span class="project-row-value">A local mosque had no website, so there was no simple way to share prayer times or updates with the community online</span>
               </div>
               <div class="project-row">
                 <span class="project-row-label">Solution</span>
-                <span class="project-row-value">A fast, simple static site covering everything the community needed, deployed and live for public use.</span>
+                <span class="project-row-value">A fast static site covering everything the community needed, built without a framework or backend and deployed for public use</span>
               </div>
               <div class="project-row">
                 <span class="project-row-label">My role</span>
-                <span class="project-row-value">Sole developer — gathered requirements directly from the client, designed the layout, built and deployed the site.</span>
+                <span class="project-row-value">Sole developer, working directly with the client to gather requirements, design the layout, and deploy the site</span>
+              </div>
+              <div class="project-row">
+                <span class="project-row-label">What I learned</span>
+                <span class="project-row-value">How to work with a real client, translate their needs into a working product, and keep a site simple enough to maintain without a backend</span>
               </div>
             </div>
             <ul class="tech-list" role="list">
@@ -173,6 +182,9 @@
 
           <!-- Write Yourself A Git -->
           <article class="project" aria-label="Write Yourself A Git project">
+            <figure class="project-media">
+              <img src="images/wyag.svg" alt="Write Yourself A Git screenshot placeholder" loading="lazy" />
+            </figure>
             <div class="project-top">
               <h3 class="project-title">Write Yourself A Git</h3>
               <a href="https://github.com/92dully/wyag" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
@@ -180,15 +192,19 @@
             <div class="project-rows">
               <div class="project-row">
                 <span class="project-row-label">Problem</span>
-                <span class="project-row-value">Using Git daily doesn't teach you how it actually works internally — objects, refs, the storage model.</span>
+                <span class="project-row-value">Using Git daily doesn't teach you how it actually works internally, only how to run the commands</span>
               </div>
               <div class="project-row">
                 <span class="project-row-label">Solution</span>
-                <span class="project-row-value">A from-scratch reimplementation of Git's core commands, built by reading the internals rather than the docs.</span>
+                <span class="project-row-value">A reimplementation of Git's core commands built from scratch, created by reading how the internals actually work</span>
               </div>
               <div class="project-row">
                 <span class="project-row-label">My role</span>
-                <span class="project-row-value">Solo project, built end to end for my own understanding of systems-level tooling.</span>
+                <span class="project-row-value">Solo project, built end to end to understand systems level tooling rather than to ship a product</span>
+              </div>
+              <div class="project-row">
+                <span class="project-row-label">What I learned</span>
+                <span class="project-row-value">How Git stores objects and refs, and how much depth exists behind commands I used without thinking about before</span>
               </div>
             </div>
             <ul class="tech-list" role="list">
@@ -197,8 +213,45 @@
             </ul>
           </article>
 
+          <!-- Unix Shell -->
+          <article class="project" aria-label="Unix Shell project">
+            <figure class="project-media">
+              <img src="images/unix-shell.svg" alt="Unix Shell screenshot placeholder" loading="lazy" />
+            </figure>
+            <div class="project-top">
+              <h3 class="project-title">Unix Shell</h3>
+              <a href="https://github.com/92dully" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
+            </div>
+            <div class="project-rows">
+              <div class="project-row">
+                <span class="project-row-label">Problem</span>
+                <span class="project-row-value">Understand how Unix shells work internally beyond simply using Bash</span>
+              </div>
+              <div class="project-row">
+                <span class="project-row-label">Solution</span>
+                <span class="project-row-value">Built a Unix style shell in C supporting external program execution, built in commands, persistent history, persistent aliases, command parsing, and environment management</span>
+              </div>
+              <div class="project-row">
+                <span class="project-row-label">My role</span>
+                <span class="project-row-value">Designed and implemented the shell including parsing commands, managing processes, persistent history, aliases, and file storage</span>
+              </div>
+              <div class="project-row">
+                <span class="project-row-label">What I learned</span>
+                <span class="project-row-value">How Unix shells use fork, exec, and wait, along with environment variables, parsing, and persistence, while improving my C programming skills</span>
+              </div>
+            </div>
+            <ul class="tech-list" role="list">
+              <li class="tech-tag">C</li>
+              <li class="tech-tag">Linux</li>
+              <li class="tech-tag">POSIX</li>
+            </ul>
+          </article>
+
           <!-- Embedded IoT -->
           <article class="project" aria-label="Embedded IoT Systems project">
+            <figure class="project-media">
+              <img src="images/embedded-iot.svg" alt="Embedded IoT Systems screenshot placeholder" loading="lazy" />
+            </figure>
             <div class="project-top">
               <h3 class="project-title">Embedded IoT Systems</h3>
               <a href="https://github.com/92dully/mage-embedded" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
@@ -206,15 +259,19 @@
             <div class="project-rows">
               <div class="project-row">
                 <span class="project-row-label">Problem</span>
-                <span class="project-row-value">MAGE Control Systems needed ESP32 modules programmed and debugged for an IoT prototyping task during my internship.</span>
+                <span class="project-row-value">MAGE Control Systems needed ESP32 modules programmed and debugged for an IoT prototyping task during my internship</span>
               </div>
               <div class="project-row">
                 <span class="project-row-label">Solution</span>
-                <span class="project-row-value">Firmware written and tested on ESP32 hardware using the Arduino framework, working alongside engineers on the team.</span>
+                <span class="project-row-value">Firmware written and tested on ESP32 hardware using the Arduino framework, working alongside engineers on the team</span>
               </div>
               <div class="project-row">
                 <span class="project-row-label">My role</span>
-                <span class="project-row-value">Programmed and tested the modules, debugged hardware/software issues, and worked from engineer guidance.</span>
+                <span class="project-row-value">Programmed and tested the modules, debugged hardware and software issues, and worked from engineer guidance</span>
+              </div>
+              <div class="project-row">
+                <span class="project-row-label">What I learned</span>
+                <span class="project-row-value">How firmware interacts with hardware in practice, and how to debug issues that span both software and physical components</span>
               </div>
             </div>
             <ul class="tech-list" role="list">
@@ -226,6 +283,9 @@
 
           <!-- Automotive Quiz -->
           <article class="project" aria-label="Automotive Quiz Web App project">
+            <figure class="project-media">
+              <img src="images/automotive-quiz.svg" alt="Automotive Quiz Web App screenshot placeholder" loading="lazy" />
+            </figure>
             <div class="project-top">
               <h3 class="project-title">Automotive Quiz Web App</h3>
               <a href="https://github.com/92dully/AH-CS-Assignment" target="_blank" rel="noopener noreferrer" class="project-link">GitHub ↗</a>
@@ -233,15 +293,19 @@
             <div class="project-rows">
               <div class="project-row">
                 <span class="project-row-label">Problem</span>
-                <span class="project-row-value">My Advanced Higher Computing assignment required a full-stack application with a real database and deployment.</span>
+                <span class="project-row-value">My Advanced Higher Computing assignment required a full stack application with a real database and deployment</span>
               </div>
               <div class="project-row">
                 <span class="project-row-label">Solution</span>
-                <span class="project-row-value">A quiz app with a relational database backend and a simple frontend, deployed to the cloud on Microsoft Azure.</span>
+                <span class="project-row-value">A quiz app with a relational database backend and a simple frontend, deployed to the cloud on Microsoft Azure</span>
               </div>
               <div class="project-row">
                 <span class="project-row-label">My role</span>
-                <span class="project-row-value">End-to-end: schema design, backend logic, frontend, and deployment.</span>
+                <span class="project-row-value">Handled the schema design, backend logic, frontend, and deployment end to end</span>
+              </div>
+              <div class="project-row">
+                <span class="project-row-label">What I learned</span>
+                <span class="project-row-value">How the pieces of a full stack app fit together, from database schema to a deployed cloud environment</span>
               </div>
             </div>
             <ul class="tech-list" role="list">
@@ -255,12 +319,12 @@
       </div>
     </section>
 
-    <!-- ===================== EXPERIENCE & EDUCATION ===================== -->
-    <section class="section" id="experience" aria-labelledby="exp-heading">
+    <!-- ===================== JOURNEY ===================== -->
+    <section class="section" id="journey" aria-labelledby="journey-heading">
       <div class="container-text">
         <div class="section-head">
-          <span class="eyebrow">Experience &amp; education</span>
-          <h2 id="exp-heading">Where I've worked and studied</h2>
+          <span class="eyebrow">Journey</span>
+          <h2 id="journey-heading">Where I've worked and studied</h2>
         </div>
 
         <div class="timeline">
@@ -269,9 +333,9 @@
             <span class="tl-date mono">2024 – 2028</span>
             <div>
               <p class="tl-kind">Education</p>
-              <p class="tl-role">BSc Software Engineering</p>
+              <p class="tl-role">Third Year Software Engineering Student</p>
               <p class="tl-org">University of Strathclyde</p>
-              <p class="tl-desc">Year 1 completed with Merit. Core modules in algorithms, software design, systems programming, and databases.</p>
+              <p class="tl-desc">Year 1 and Year 2 completed with Merit, currently covering algorithms, software design, systems programming, and databases</p>
             </div>
           </div>
 
@@ -281,7 +345,7 @@
               <p class="tl-kind">Internship</p>
               <p class="tl-role">Software Engineering Intern</p>
               <p class="tl-org">MAGE Control Systems, Glasgow</p>
-              <p class="tl-desc">Programmed and debugged ESP32 microcontrollers using C++ and the Arduino framework, working alongside engineers on embedded IoT prototyping.</p>
+              <p class="tl-desc">Programmed and debugged ESP32 microcontrollers using C++ and the Arduino framework, working alongside engineers on embedded IoT prototyping</p>
             </div>
           </div>
 
@@ -289,9 +353,9 @@
             <span class="tl-date mono">Nov 2023</span>
             <div>
               <p class="tl-kind">Programme</p>
-              <p class="tl-role">Top-Up Programme</p>
+              <p class="tl-role">Top Up Programme</p>
               <p class="tl-org">University of Glasgow</p>
-              <p class="tl-desc">Supplementary academic programme (AAB) building workplace readiness, communication, and time management.</p>
+              <p class="tl-desc">Supplementary academic programme building workplace readiness, communication, and time management</p>
             </div>
           </div>
 
@@ -299,9 +363,9 @@
             <span class="tl-date mono">Summer 2023</span>
             <div>
               <p class="tl-kind">Programme</p>
-              <p class="tl-role">Smart Futures — Professional Services</p>
-              <p class="tl-org">Ernst &amp; Young, Glasgow</p>
-              <p class="tl-desc">Three-day work experience covering teamwork, time management, and presenting ideas to senior staff and guests.</p>
+              <p class="tl-role">Smart Futures, Professional Services</p>
+              <p class="tl-org">Ernst and Young, Glasgow</p>
+              <p class="tl-desc">Three day work experience covering teamwork, time management, and presenting ideas to senior staff and guests</p>
             </div>
           </div>
 
@@ -311,7 +375,7 @@
               <p class="tl-kind">Role</p>
               <p class="tl-role">Technical Assistant</p>
               <p class="tl-org">Fonology, Glasgow</p>
-              <p class="tl-desc">Tested and repaired devices in-store, salvaged functional parts, and advised customers on current technology.</p>
+              <p class="tl-desc">Tested and repaired devices in store, salvaged functional parts, and advised customers on current technology</p>
             </div>
           </div>
 
@@ -321,7 +385,7 @@
               <p class="tl-kind">Role</p>
               <p class="tl-role">Technical Assistant</p>
               <p class="tl-org">Tech Solution, Glasgow</p>
-              <p class="tl-desc">Repaired phones, consoles and computers — replacing screens, batteries, ports and boards — and coordinated parts orders with suppliers.</p>
+              <p class="tl-desc">Repaired phones, consoles, and computers by replacing screens, batteries, ports, and boards, and coordinated parts orders with suppliers</p>
             </div>
           </div>
 
@@ -329,9 +393,9 @@
             <span class="tl-date mono">2018 – 2024</span>
             <div>
               <p class="tl-kind">Education</p>
-              <p class="tl-role">Advanced Higher: Computing Science (B)</p>
+              <p class="tl-role">Advanced Higher Computing Science</p>
               <p class="tl-org">Holyrood Secondary School</p>
-              <p class="tl-desc">Higher: Computing Science (A), Urdu (A), Graphics Communication (B), Mathematics (B), Design &amp; Manufacture (C), English (C), Physics (C).</p>
+              <p class="tl-desc">Also studied Higher level Computing Science, Urdu, Graphics Communication, Mathematics, Design and Manufacture, English, and Physics</p>
             </div>
           </div>
 
@@ -341,7 +405,7 @@
               <p class="tl-kind">Volunteering</p>
               <p class="tl-role">Volunteer</p>
               <p class="tl-org">Glasgow Central Mosque</p>
-              <p class="tl-desc">Coordinate a team of volunteers for Open Days bringing 600+ visitors and food service for up to 400 people — event setup, stewarding, and sign-in.</p>
+              <p class="tl-desc">Coordinate a team of volunteers for Open Days bringing over 600 visitors, including event setup, stewarding, and visitor sign in</p>
             </div>
           </div>
 
@@ -355,7 +419,7 @@
         <div class="section-head">
           <span class="eyebrow">Contact</span>
           <h2 id="contact-heading">Get in touch</h2>
-          <p>Open to internships, placements, and interesting projects.</p>
+          <p>Open to internships, placements, and interesting projects</p>
         </div>
 
         <address class="contact-list">
@@ -380,8 +444,8 @@
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="container footer-inner">
-      <p class="footer-copy">© 2026 Muhammad Abdullah Ahmad</p>
-      <p class="footer-stack">HTML · CSS · JS</p>
+      <p class="footer-copy">© 2026</p>
+      <p class="footer-stack">Designed and built by Muhammad Abdullah Ahmad</p>
     </div>
   </footer>
 
