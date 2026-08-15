@@ -343,6 +343,8 @@ p  { color: var(--text-secondary); }
 }
 .project-link:hover { color: var(--accent); border-color: var(--accent); }
 
+.project-desc { margin-top: var(--sp-2); max-width: 60ch; }
+
 .project-rows { display: flex; flex-direction: column; gap: 10px; margin-top: var(--sp-2); }
 .project-row { display: flex; gap: var(--sp-2); font-size: 0.94rem; }
 .project-row-label {

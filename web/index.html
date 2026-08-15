@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Web development services from Abdullah Ahmad — clean, fast, no-nonsense websites for small businesses and organisations" />
+  <meta name="author" content="Muhammad Abdullah Ahmad" />
+  <title>Web Development — Abdullah Ahmad</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">&larr; Abdullah Ahmad</a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="#work"    class="nav-link" data-section="work">Work</a></li>
+          <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+          <li><a href="/" class="nav-cv">Main site</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="ham-bar"></span>
+        <span class="ham-bar"></span>
+        <span class="ham-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home" aria-label="Introduction">
+      <div class="container-text hero-text">
+        <span class="eyebrow">Web Development</span>
+        <h1>Websites for small businesses and organisations</h1>
+        <p class="hero-lede">
+          Clean, fast, no-nonsense websites, built to do exactly what your
+          business needs, nothing more
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">View my work</a>
+          <a href="mailto:abdullah@abdullahahmad.co.uk" class="btn btn-outline">Get in touch</a>
+        </div>
+        <div class="hero-links">
+          <a href="/">&larr; Back to my software engineering portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WORK ===================== -->
+    <section class="section" id="work" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Work</span>
+          <h2 id="work-heading">Selected work</h2>
+        </div>
+
+        <div class="projects-list">
+
+          <!-- Madni Masjid -->
+          <article class="project" aria-label="Madni Masjid Website">
+            <figure class="project-media">
+              <img src="/images/madni-masjid.png" alt="Madni Masjid Website screenshot" loading="lazy" />
+            </figure>
+            <div class="project-top">
+              <h3 class="project-title">Madni Masjid Website</h3>
+              <a href="https://madnimasjid.uk" target="_blank" rel="noopener noreferrer" class="project-link">madnimasjid.uk &#8599;</a>
+            </div>
+            <p class="project-desc">
+              A fast, static website for a local mosque, sharing prayer times and community updates, built with no backend to keep it simple to maintain
+            </p>
+            <ul class="tech-list" role="list">
+              <li class="tech-tag">HTML</li>
+              <li class="tech-tag">CSS</li>
+              <li class="tech-tag">JavaScript</li>
+            </ul>
+          </article>
+
+          <!-- DROUGHT -->
+          <article class="project" aria-label="DROUGHT">
+            <figure class="project-media">
+              <img src="/images/drought.png" alt="DROUGHT website screenshot" loading="lazy" />
+            </figure>
+            <div class="project-top">
+              <h3 class="project-title">DROUGHT</h3>
+              <span class="project-link">Coming soon</span>
+            </div>
+            <p class="project-desc">
+              Website for a Glasgow cold beverage bar, featuring a full menu system, specials and a hand crafted retro modern identity
+            </p>
+            <ul class="tech-list" role="list">
+              <li class="tech-tag">HTML</li>
+              <li class="tech-tag">CSS</li>
+              <li class="tech-tag">JavaScript</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="container-text">
+        <div class="section-head">
+          <span class="eyebrow">Get in touch</span>
+          <h2 id="contact-heading">Let's build something</h2>
+          <p>Have a project in mind? Get in touch and I'll get back to you</p>
+        </div>
+
+        <div class="hero-actions">
+          <a href="mailto:abdullah@abdullahahmad.co.uk" class="btn btn-primary">Email abdullah@abdullahahmad.co.uk</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026</p>
+      <p class="footer-stack"><a href="/">&larr; Back to abdullahahmad.co.uk</a></p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
